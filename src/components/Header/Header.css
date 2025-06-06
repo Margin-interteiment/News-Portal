@@ -1,0 +1,54 @@
+.header {
+  margin-top: 50px;
+  margin-left: 50px;
+  display: flex;
+}
+
+.search-form {
+  position: relative;
+  left: 23%;
+}
+
+.logo {
+  width: 125px;
+  height: 43px;
+  position: relative;
+  left: 50px;
+  cursor: pointer;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #000;
+  font-size: 18px;
+  padding: 5px 10px;
+  width: 471px;
+}
+
+.search-icon {
+  position: relative;
+  right: 30px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  position: relative;
+  left: 98%;
+  top: 21%;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  margin-right: 46px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-item a:hover {
+  color: rgba(15, 115, 197, 0.733);
+}

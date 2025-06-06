@@ -1,0 +1,88 @@
+.my-profile-content {
+  content: "";
+  position: absolute;
+  /* background-image: url("../../assets/bgForMyProfile.jpeg"); */
+  background-size: cover;
+  background-position: center;
+  width: 1525px;
+  height: 253px;
+  left: 9%;
+  top: 25%;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+}
+
+.my-profile-headline {
+  z-index: 40;
+  color: #fff;
+  position: relative;
+  left: 42%;
+  display: inline;
+  top: 32%;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.my-profile-main {
+  content: "";
+  position: absolute;
+  background-image: url("../../assets/bgForMyProfile.jpeg");
+  background-size: cover;
+  background-position: center;
+  width: 1523px;
+  height: 158px;
+  left: 0%;
+  top: 0%;
+  border-radius: 20px;
+  background-color: aliceblue;
+}
+
+.my-profile-articles {
+  margin-top: 550px;
+}
+
+/* ------ */
+
+.my-profile-link {
+  font-size: 16px;
+  position: relative;
+  top: 20px;
+  left: 4px;
+  color: #000;
+}
+
+.my-profile-image {
+  width: 422px;
+  height: 253px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.my-profile-item {
+  margin-top: 50px;
+  position: relative;
+  left: 18%;
+  border: 2px solid #000;
+  padding: 32px;
+  max-width: 487px;
+  list-style: none;
+}
+
+.my-articles-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-right: 194px;
+}
+
+.my-profile-title {
+  display: inline;
+  font-size: 20px;
+  position: relative;
+  left: 1%;
+  top: 7px;
+}
+
+.my-profile-subtitle {
+  position: relative;
+  top: 3%;
+  left: 1%;
+}

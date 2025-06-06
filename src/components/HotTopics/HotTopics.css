@@ -1,0 +1,70 @@
+.main-topics {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  max-width: 900px;
+}
+
+.hot-topics-media {
+  content: "";
+  background-image: url("../../assets/bgForHotTopic.jpeg");
+  background-size: cover;
+  background-position: center;
+  width: 876px;
+  height: 400px;
+  position: absolute;
+  margin-top: 50px;
+}
+
+.hot-topics-content {
+  max-width: 400px;
+  position: relative;
+  top: 124px;
+  left: 56%;
+}
+
+.hot-topics-text {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 20px;
+  max-width: 500px;
+  position: relative;
+  left: 7%;
+  top: 56%;
+}
+
+.hot-topics-author {
+  display: block;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.hot-topics-paragraph {
+  font-size: 24px;
+  width: 600px;
+  position: relative;
+  left: 140%;
+}
+
+.hot-topics-word {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.hot-topics-header {
+  max-width: 400px;
+  position: relative;
+  left: 27px;
+}
+
+.hot-topics-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.hot-header-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 20px;
+}
