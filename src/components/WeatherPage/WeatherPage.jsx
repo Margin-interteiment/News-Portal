@@ -13,6 +13,8 @@ export default function WeatherPage() {
   const dispatch = useDispatch();
   const [weatherData, setWeatherData] = useState({});
   const [newCity, setNewCity] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
   const fetchWeather = async (city) => {
     try {
       const res = await axios.get(
@@ -20,7 +22,7 @@ export default function WeatherPage() {
       );
       setWeatherData((prev) => ({ ...prev, [city]: res.data }));
     } catch (err) {
-      console.error("Місто не знайдено:", city);
+      console.error("Don`t found a city:", city);
     }
   };
   useEffect(() => {
@@ -50,9 +52,14 @@ export default function WeatherPage() {
   const handleRemove = (city) => {
     dispatch(removeCity(city));
   };
+
+  const filteredCities = cities.filter((city) =>
+    city.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="weather-page">
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
       <div className="weather-add">
         <div className="weather-add-text">
           <p className="weather-add-subtitle">
@@ -77,22 +84,23 @@ export default function WeatherPage() {
       <div className="weather-content">
         <h2 className="weather-content-title">Weather in the cities</h2>
         <ul className="weather-list">
-          {cities.map((city) => (
-            <li key={city} className="weather-list-item">
-              <h3 className="weather-list-city">{city}</h3>
-              {weatherData[city] ? (
+          {filteredCities.map((filteredCitie) => (
+            <li key={filteredCitie} className="weather-list-item">
+              <h3 className="weather-list-city">{filteredCitie}</h3>
+              {weatherData[filteredCitie] ? (
                 <div className="weather-list-details">
                   <p className="weather-list-temp">
-                    Temperature: {weatherData[city].main.temp}°C
+                    Temperature: {weatherData[filteredCitie].main.temp}°C
                   </p>
                   <p className="weather-list-description">
-                    Description: {weatherData[city].weather[0].description}
+                    Description:{" "}
+                    {weatherData[filteredCitie].weather[0].description}
                   </p>
                   <p className="weather-list-humidity">
-                    Humidity: {weatherData[city].main.humidity}%
+                    Humidity: {weatherData[filteredCitie].main.humidity}%
                   </p>
                   <img
-                    src={`https://openweathermap.org/img/wn/${weatherData[city].weather[0].icon}.png`}
+                    src={`https://openweathermap.org/img/wn/${weatherData[filteredCitie].weather[0].icon}.png`}
                     alt=""
                   />
                 </div>
@@ -102,7 +110,7 @@ export default function WeatherPage() {
               <button
                 className="weather-list-remove-btn"
                 type="button"
-                onClick={() => handleRemove(city)}
+                onClick={() => handleRemove(filteredCitie)}
               >
                 Remove
               </button>

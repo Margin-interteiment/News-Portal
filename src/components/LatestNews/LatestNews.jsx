@@ -6,7 +6,7 @@ import { saveArticle } from "../../store/newsSlice.js";
 
 const API_KEY = "261ea329eb164bd1b4830ad09833fe12";
 
-export default function LatestNews() {
+export default function LatestNews({ searchTerm }) {
   const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ export default function LatestNews() {
         );
         setArticles(response.data.articles.slice(3, 9));
       } catch (error) {
-        console.error("Помилка при завантаженні новин:", error);
+        console.error("Error loading the news:", error);
       }
     };
 
@@ -29,26 +29,32 @@ export default function LatestNews() {
     dispatch(saveArticle(article));
   };
 
+  const filteredArticles = articles.filter((article) => {
+    return article.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
     <section className="latest-news">
       <h2 className="latest-news-title">Latest News</h2>
       <div className="latest-news-list">
-        {articles.map((article, index) => (
+        {filteredArticles.map((filteredArticle, index) => (
           <div className="latest-news-item" key={index}>
             <img
               className="latest-news-item-image"
-              src={article.urlToImage}
-              alt={article.title}
+              src={filteredArticle.urlToImage}
+              alt={filteredArticle.title}
             />
             <h2 className="latest-news-item-title">
-              {article.title.slice(0, 100) + "..."}
+              {filteredArticle.title.slice(0, 49) + "..."}
             </h2>
 
             <p className="latest-news-item-date">
-              {new Date(article.publishedAt).toLocaleDateString("en-GB")}
+              {new Date(filteredArticle.publishedAt).toLocaleDateString(
+                "en-GB"
+              )}
             </p>
             <a
-              href={article.url}
+              href={filteredArticle.url}
               target="_blank"
               rel="noopener noreferrer"
               className="latest-news-item-link"
@@ -57,7 +63,7 @@ export default function LatestNews() {
             </a>
             <button
               className="latest-news-btn"
-              onClick={() => handleSave(article)}
+              onClick={() => handleSave(filteredArticle)}
             >
               Save
             </button>

@@ -1,0 +1,95 @@
+.login {
+  display: flex;
+}
+
+.login-image {
+  height: 100vh;
+  width: 118%;
+  object-fit: cover;
+  display: block;
+}
+
+.login-content {
+  max-width: 600px;
+  height: 482px;
+  position: relative;
+  left: 22%;
+  top: 289px;
+}
+
+.login-email {
+  display: block;
+  padding: 18px;
+  margin-top: 21px;
+  width: 375px;
+  border: 1px solid #666666;
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  opacity: 35%;
+}
+
+.login-password {
+  display: block;
+  padding: 18px;
+  margin-top: 45px;
+  width: 378px;
+  border: 1px solid #666666;
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  opacity: 35%;
+}
+
+.login-label-email {
+  color: #666666;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  top: 9px;
+}
+
+.login-label-password {
+  color: #666666;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  top: 31px;
+}
+
+.login-btn {
+  display: block;
+  margin-top: 29px;
+  padding: 18px;
+  border: 1px solid #000000;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #000000;
+  width: 385px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.login-btn:hover {
+  background-color: #666666;
+  border: 1px solid #666666;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.login-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 3px;
+  position: absolute;
+}
+
+.login-title {
+  color: #111111;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  left: 34%;
+}

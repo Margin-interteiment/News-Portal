@@ -1,5 +1,5 @@
 .latest-news {
-  margin-top: 400px;
+  margin-top: 500px;
 }
 
 .latest-news-item-title {
@@ -62,4 +62,9 @@
   left: 24%;
   font-size: 15px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.latest-news-btn:hover {
+  background-color: #191b55;
+  color: #fff;
 }

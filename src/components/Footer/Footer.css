@@ -33,6 +33,10 @@
 .footer-links-item a {
   color: #ffffff;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-links-item a:hover {
+  color: rgb(236, 209, 33);
 }
 
 .footer-headquarter-address {

@@ -11,6 +11,7 @@ const API_KEY = "261ea329eb164bd1b4830ad09833fe12";
 export default function AllNews() {
   const [allArticles, setallArticles] = useState([]);
   const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -20,7 +21,7 @@ export default function AllNews() {
         );
         setallArticles(response.data.articles.slice(0, 9));
       } catch (error) {
-        console.error("Помилка при завантаженні новин:", error);
+        console.error("Error loading the news:", error);
       }
     };
 
@@ -30,30 +31,35 @@ export default function AllNews() {
   const handleSave = (article) => {
     dispatch(saveArticle(article));
   };
+  const filteredArticles = allArticles.filter((article) => {
+    return article.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="all-news">
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
       <div className="all-news-main">
         <h2 className="all-news-title">All News</h2>
         <p className="all-news-subtitle">All the latest news just for you!</p>
       </div>
       <ul className="all-news-list">
-        {allArticles.map((article, index) => (
+        {filteredArticles.map((filteredArticle, index) => (
           <li className="all-news-item" key={index}>
             <img
               className="all-news-item-image"
-              src={article.urlToImage}
-              alt={article.title}
+              src={filteredArticle.urlToImage}
+              alt={filteredArticle.title}
             />
             <h2 className="all-news-item-title">
-              {article.title.slice(0, 100) + "..."}
+              {filteredArticle.title.slice(0, 49) + "..."}
             </h2>
             <p className="all-news-item-date">
-              {new Date(article.publishedAt).toLocaleDateString("en-GB")}
+              {new Date(filteredArticle.publishedAt).toLocaleDateString(
+                "en-GB"
+              )}
             </p>
             <a
-              href={article.url}
+              href={filteredArticle.url}
               target="_blank"
               rel="noopener noreferrer"
               className="all-news-item-link"
@@ -62,7 +68,7 @@ export default function AllNews() {
             </a>
             <button
               className="all-news-btn"
-              onClick={() => handleSave(article)}
+              onClick={() => handleSave(filteredArticle)}
             >
               Save
             </button>

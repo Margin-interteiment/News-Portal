@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 
 export default function MyProfile() {
   const [articles, setArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem("saved-articles");
@@ -13,36 +14,39 @@ export default function MyProfile() {
         const parsed = JSON.parse(saved);
         setArticles(parsed);
       } catch (error) {
-        console.error("Помилка при читані збережених статей:", error);
+        console.error("Reminder when reading savings articles:", error);
       }
     }
   }, []);
 
+  const filteredArticles = articles.filter((article) => {
+    return article.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
     <div className="my-profile">
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
 
-      <div className="my-profile-content">
-        <div className="my-profile-main">
-          <h2 className="my-profile-headline">My Profile</h2>
-        </div>
+      <div className="my-profile-main">
+        <h2 className="my-profile-headline">My Profile</h2>
       </div>
       <div className="my-profile-articles">
+        <h3 className="my-article-title">My saved Articles</h3>
         <ul className="my-articles-list">
-          {articles.length > 0 ? (
-            articles.map((article, index) => (
+          {filteredArticles.length > 0 ? (
+            filteredArticles.map((filteredArticle, index) => (
               <li key={index} className="my-profile-item">
                 <img
-                  src={article.urlToImage}
-                  alt={article.title}
+                  src={filteredArticle.urlToImage}
+                  alt={filteredArticle.title}
                   className="my-profile-image"
                 />
                 <h2 className="my-profile-title">
-                  {article.title.slice(0, 70) + "..."}
+                  {filteredArticle.title.slice(0, 70) + "..."}
                 </h2>
-                <p className="my-profile-subtitle">{article.author}</p>
+                <p className="my-profile-subtitle">{filteredArticle.author}</p>
                 <a
-                  href={article.url}
+                  href={filteredArticle.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="my-profile-link"

@@ -66,4 +66,17 @@
   left: 24%;
   font-size: 15px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.all-news-btn:hover {
+  background-color: #191b55;
+  color: #fff;
+}
+
+.all-news-item-title {
+  font-size: 19px;
+  font-weight: 500;
+  margin-top: 20px;
+  color: #000;
+  max-width: 413px;
 }

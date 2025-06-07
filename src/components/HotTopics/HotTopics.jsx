@@ -5,8 +5,7 @@ export default function HotTopics() {
   return (
     <section className="main-topics">
       <div className="hot-topics-header">
-        <h2 className="hot-header-title">Hi,Name</h2>
-        <p className="hot-topics-subtitle"> Fresh news is already here!</p>
+        <p className="hot-topics-subtitle">Hi, welcome to the News Portal!</p>
       </div>
       <div className="hot-topics">
         <div className="hot-topics-media">

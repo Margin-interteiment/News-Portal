@@ -52,3 +52,21 @@
 .nav-item a:hover {
   color: rgba(15, 115, 197, 0.733);
 }
+
+.logout-button {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  margin-right: 46px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.logout-icon {
+  width: 21px;
+  position: absolute;
+  right: 10px;
+}
