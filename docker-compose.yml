@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  react-app:
+    build: .
+    container_name: new-portal
+    ports:
+      - "3001:80"  # Прокидуємо порт 3001 на хості -> 80 в контейнері
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
